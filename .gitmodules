@@ -1,0 +1,6 @@
+[submodule "pGramsFC"]
+	path = pGramsFC
+	url = https://github.com/STA205233/pGramsFC.git
+[submodule "GramsReadout"]
+	path = GramsReadout
+	url = https://github.com/NevisNeutrinos/GramsReadout.git
