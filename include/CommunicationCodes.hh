@@ -6,6 +6,14 @@ constexpr uint16_t construct_code(uint16_t code, uint16_t subsystem_mask) {
   return code + subsystem_mask;
 }
 
+#ifndef PGRAMS_COM_CODE_PDU
+#define PGRAMS_COM_CODE_PDU(name, code)                          \
+  PDU_##name##_ON = construct_code(code, COM_SUBSYSTEM_PDU_MSK), \
+  PDU_##name##_OFF = construct_code(code + 0x1, COM_SUBSYSTEM_PDU_MSK)
+#else
+#error "PGRAMS_COM_CODE_PDU is already defined. Please ensure it is defined only once."
+#endif
+
 constexpr uint16_t COM_SUBSYSTEM_HUB_MSK = 0x1000;
 constexpr uint16_t COM_SUBSYSTEM_PDU_MSK = 0x2000;
 constexpr uint16_t COM_SUBSYSTEM_ORC_MSK = 0x3000;
@@ -31,13 +39,22 @@ enum class CommunicationCodes : uint16_t {
   HUB_Dummy2 = construct_code(0xF2, COM_SUBSYSTEM_HUB_MSK),
 
   // PDU
-  PDU_SiPM0_VSET = construct_code(0x0, COM_SUBSYSTEM_PDU_MSK),
-  PDU_SiPM1_VSET = construct_code(0x1, COM_SUBSYSTEM_PDU_MSK),
-  PDU_SiPM2_VSET = construct_code(0x2, COM_SUBSYSTEM_PDU_MSK),
-  PDU_SiPM3_VSET = construct_code(0x3, COM_SUBSYSTEM_PDU_MSK),
-  PDU_SiPM4_VSET = construct_code(0x4, COM_SUBSYSTEM_PDU_MSK),
-  PDU_SiPM5_VSET = construct_code(0x5, COM_SUBSYSTEM_PDU_MSK),
-  PDU_PressureReg_VSET = construct_code(0x6, COM_SUBSYSTEM_PDU_MSK),
+  PGRAMS_COM_CODE_PDU(Cold_TPC_HV, 0x0),
+  PGRAMS_COM_CODE_PDU(Cold_Charge_PreAmp, 0x2),
+  PGRAMS_COM_CODE_PDU(Cold_SiPM_PreAmp, 0x4),
+  PGRAMS_COM_CODE_PDU(Warm_TPC_Shaper, 0x6),
+  PGRAMS_COM_CODE_PDU(SiPM, 0x8),
+  PGRAMS_COM_CODE_PDU(CAEN_P3V3, 0xA),
+  PGRAMS_COM_CODE_PDU(CAEN_PM5V, 0xC),
+  PGRAMS_COM_CODE_PDU(CAEN_P12V, 0xE),
+  PGRAMS_COM_CODE_PDU(DAQ_CPU, 0x10),
+  PDU_SiPM0_VSET = construct_code(0x10, COM_SUBSYSTEM_PDU_MSK),
+  PDU_SiPM1_VSET = construct_code(0x11, COM_SUBSYSTEM_PDU_MSK),
+  PDU_SiPM2_VSET = construct_code(0x12, COM_SUBSYSTEM_PDU_MSK),
+  PDU_SiPM3_VSET = construct_code(0x13, COM_SUBSYSTEM_PDU_MSK),
+  PDU_SiPM4_VSET = construct_code(0x14, COM_SUBSYSTEM_PDU_MSK),
+  PDU_SiPM5_VSET = construct_code(0x15, COM_SUBSYSTEM_PDU_MSK),
+  PDU_PressureReg_VSET = construct_code(0x16, COM_SUBSYSTEM_PDU_MSK),
 
   // Orchestrator
   ORC_Exec_CPU_Restart = construct_code(0x0, COM_SUBSYSTEM_ORC_MSK),
@@ -78,7 +95,7 @@ enum class CommunicationCodes : uint16_t {
   TOF_Run_Acquire_QDC_Calibration = construct_code(0x108, COM_SUBSYSTEM_TOF_MSK),
   TOF_Run_Acquire_SiPM_Data = construct_code(0x109, COM_SUBSYSTEM_TOF_MSK),
   TOF_Run_Acquire_Threshold_Calibration_BN = construct_code(0x110, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Run_Acquire_Threshold_Calibration_D  = construct_code(0x111, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Run_Acquire_Threshold_Calibration_D = construct_code(0x111, COM_SUBSYSTEM_TOF_MSK),
 
   TOF_Run_Process_Threshold_Calibration = construct_code(0x200, COM_SUBSYSTEM_TOF_MSK),
   TOF_Run_Process_TDC_Calibration = construct_code(0x201, COM_SUBSYSTEM_TOF_MSK),
