@@ -102,7 +102,9 @@ enum class CommunicationCodes : uint16_t {
   TOF_Run_Process_QDC_Calibration = construct_code(0x202, COM_SUBSYSTEM_TOF_MSK),
   TOF_Run_Convert_Raw_To_Raw = construct_code(0x203, COM_SUBSYSTEM_TOF_MSK),
   TOF_Run_Convert_Raw_To_Singles = construct_code(0x204, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Run_Process_TOF_Coin_Evt_QA = construct_code(0x205, COM_SUBSYSTEM_TOF_MSK),
+
+  TOF_Run_Convert_Stg1_To_Stg2 = construct_code(0x300, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Run_Process_TOF_Coin_Evt_QA = construct_code(0x301, COM_SUBSYSTEM_TOF_MSK),
 
   TOF_ACK = construct_code(0xFFF, COM_SUBSYSTEM_TOF_MSK),
   TOF_Callback = construct_code(0xFFE, COM_SUBSYSTEM_TOF_MSK),
