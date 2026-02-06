@@ -49,13 +49,13 @@ enum class CommunicationCodes : uint16_t {
   PGRAMS_COM_CODE_PDU(CAEN_PM5V, 0xC),
   PGRAMS_COM_CODE_PDU(CAEN_P12V, 0xE),
   PGRAMS_COM_CODE_PDU(DAQ_CPU, 0x10),
-  PDU_SiPM0_VSET = construct_code(0x10, COM_SUBSYSTEM_PDU_MSK),
-  PDU_SiPM1_VSET = construct_code(0x11, COM_SUBSYSTEM_PDU_MSK),
-  PDU_SiPM2_VSET = construct_code(0x12, COM_SUBSYSTEM_PDU_MSK),
-  PDU_SiPM3_VSET = construct_code(0x13, COM_SUBSYSTEM_PDU_MSK),
-  PDU_SiPM4_VSET = construct_code(0x14, COM_SUBSYSTEM_PDU_MSK),
-  PDU_SiPM5_VSET = construct_code(0x15, COM_SUBSYSTEM_PDU_MSK),
-  PDU_PressureReg_VSET = construct_code(0x16, COM_SUBSYSTEM_PDU_MSK),
+  PDU_SiPM0_VSET = construct_code(0x12, COM_SUBSYSTEM_PDU_MSK),
+  PDU_SiPM1_VSET = construct_code(0x13, COM_SUBSYSTEM_PDU_MSK),
+  PDU_SiPM2_VSET = construct_code(0x14, COM_SUBSYSTEM_PDU_MSK),
+  PDU_SiPM3_VSET = construct_code(0x15, COM_SUBSYSTEM_PDU_MSK),
+  PDU_SiPM4_VSET = construct_code(0x16, COM_SUBSYSTEM_PDU_MSK),
+  PDU_SiPM5_VSET = construct_code(0x17, COM_SUBSYSTEM_PDU_MSK),
+  PDU_PressureReg_VSET = construct_code(0x18, COM_SUBSYSTEM_PDU_MSK),
 
   // Orchestrator
   ORC_Exec_CPU_Restart = construct_code(0x0, COM_SUBSYSTEM_ORC_MSK),
@@ -129,15 +129,12 @@ enum class CommunicationCodes : uint16_t {
 inline bool isSubsystem(uint16_t code, uint16_t subsystem_mask) {
   return (code & COM_SUBSYSTEM_MSK) == subsystem_mask;
 }
-inline uint16_t castCommandCode(CommunicationCodes code) {
-  return static_cast<uint16_t>(code);
-}
 constexpr uint16_t to_u16(CommunicationCodes code) noexcept {
   return static_cast<uint16_t>(code);
 }
 
 enum class TelemetryCodes : uint16_t {
-  HUB_Telemetry_Normal = 0x0,
+  HUB_Telemetry_Normal = construct_code(0x0, COM_SUBSYSTEM_HUB_MSK),
   ORC_Hardware_Status = construct_code(0x20, COM_SUBSYSTEM_ORC_MSK),
   TPC_Hardware_Status = construct_code(0x20, COM_SUBSYSTEM_TPC_MSK),
   TPC_Query_Hardware_Status = construct_code(0x22, COM_SUBSYSTEM_TPC_MSK)
