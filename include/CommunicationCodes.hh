@@ -17,10 +17,11 @@ constexpr uint16_t construct_code(uint16_t code, uint16_t subsystem_mask) {
 constexpr uint16_t COM_SUBSYSTEM_HUB_MSK = 0x1000;
 constexpr uint16_t COM_SUBSYSTEM_PDU_MSK = 0x2000;
 constexpr uint16_t COM_SUBSYSTEM_ORC_MSK = 0x3000;
-constexpr uint16_t COM_SUBSYSTEM_COL_MSK = 0x4000; // Columbia readout
+constexpr uint16_t COM_SUBSYSTEM_TPC_MSK = 0x4000; // TPC readout
 constexpr uint16_t COM_SUBSYSTEM_TOF_MSK = 0x5000;
 constexpr uint16_t COM_SUBSYSTEM_TOF_BIAS_MSK = 0x6000;
 constexpr uint16_t COM_SUBSYSTEM_CMN_MSK = 0x7000; // Common commands
+constexpr uint16_t COM_SUBSYSTEM_TPCMonitor_MSK = 0x8000; // TPC Monitor
 constexpr uint16_t COM_SUBSYSTEM_MSK = 0xF000; // Mask for all subsystems
 
 enum class CommunicationCodes : uint16_t {
@@ -71,15 +72,17 @@ enum class CommunicationCodes : uint16_t {
   ORC_Boot_Tpc_Daq = construct_code(0x11, COM_SUBSYSTEM_ORC_MSK),
   ORC_Shutdown_Tpc_Daq = construct_code(0x12, COM_SUBSYSTEM_ORC_MSK),
 
-  //Columbia Readout
-  COL_Configure = construct_code(0x0, COM_SUBSYSTEM_COL_MSK),
-  COL_Start_Run = construct_code(0x1, COM_SUBSYSTEM_COL_MSK),
-  COL_Stop_Run = construct_code(0x2, COM_SUBSYSTEM_COL_MSK),
-  COL_Reset_Run = construct_code(0x3, COM_SUBSYSTEM_COL_MSK),
-  COL_Boot_DAQ = construct_code(0x4, COM_SUBSYSTEM_COL_MSK),
-  COL_Boot_Monitor = construct_code(0x5, COM_SUBSYSTEM_COL_MSK),
-  COL_Query_LB_Data = construct_code(0x7, COM_SUBSYSTEM_COL_MSK),
-  COL_Query_Event_Data = construct_code(0x8, COM_SUBSYSTEM_COL_MSK),
+  //TPC Readout
+  TPC_Configure = construct_code(0x0, COM_SUBSYSTEM_TPC_MSK),
+  TPC_Start_Run = construct_code(0x1, COM_SUBSYSTEM_TPC_MSK),
+  TPC_Stop_Run = construct_code(0x2, COM_SUBSYSTEM_TPC_MSK),
+  TPC_Reset_Run = construct_code(0x3, COM_SUBSYSTEM_TPC_MSK),
+  TPC_Boot_DAQ = construct_code(0x4, COM_SUBSYSTEM_TPC_MSK),
+  TPC_Boot_Monitor = construct_code(0x5, COM_SUBSYSTEM_TPC_MSK),
+
+  // TPC Monitor
+  TPCMonitor_Query_LB_Data = construct_code(0x7, COM_SUBSYSTEM_TPCMonitor_MSK),
+  TPCMonitor_Query_Event_Data = construct_code(0x8, COM_SUBSYSTEM_TPCMonitor_MSK),
 
   // TOF
   TOF_Start_DAQ = construct_code(0x0, COM_SUBSYSTEM_TOF_MSK),
@@ -136,8 +139,8 @@ constexpr uint16_t to_u16(CommunicationCodes code) noexcept {
 enum class TelemetryCodes : uint16_t {
   HUB_Telemetry_Normal = 0x0,
   ORC_Hardware_Status = construct_code(0x20, COM_SUBSYSTEM_ORC_MSK),
-  COL_Hardware_Status = construct_code(0x20, COM_SUBSYSTEM_COL_MSK),
-  COL_Query_Hardware_Status = construct_code(0x22, COM_SUBSYSTEM_COL_MSK)
+  TPC_Hardware_Status = construct_code(0x20, COM_SUBSYSTEM_TPC_MSK),
+  TPC_Query_Hardware_Status = construct_code(0x22, COM_SUBSYSTEM_TPC_MSK)
 };
 constexpr uint16_t to_telem_u16(TelemetryCodes code) noexcept {
   return static_cast<uint16_t>(code);
