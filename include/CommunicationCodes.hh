@@ -72,8 +72,8 @@ enum class CommunicationCodes : uint16_t {
   ORC_Boot_Tpc_Daq = construct_code(0x11, COM_SUBSYSTEM_ORC_MSK),
   ORC_Shutdown_Tpc_Daq = construct_code(0x12, COM_SUBSYSTEM_ORC_MSK),
   ORC_Start_PPS = construct_code(0x13, COM_SUBSYSTEM_ORC_MSK), 
-  ORC_Send_Pulse_Train = construct_code(0x13, COM_SUBSYSTEM_ORC_MSK), 
-  ORC_Stop_PPS = construct_code(0x13, COM_SUBSYSTEM_ORC_MSK), 
+  ORC_Send_Pulse_Train = construct_code(0x14, COM_SUBSYSTEM_ORC_MSK), 
+  ORC_Stop_PPS = construct_code(0x15, COM_SUBSYSTEM_ORC_MSK), 
 
   //TPC Readout
   TPC_Configure = construct_code(0x0, COM_SUBSYSTEM_TPC_MSK),
