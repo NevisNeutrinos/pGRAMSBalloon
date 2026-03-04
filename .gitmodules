@@ -7,3 +7,6 @@
 [submodule "grams-tof-library"]
 	path = grams-tof-library
 	url = git@github.com:kenichisakai-git/grams-tof-library.git
+[submodule "AD3Control"]
+	path = AD3Control
+	url = https://github.com/NevisNeutrinos/AD3Control.git
