@@ -71,6 +71,9 @@ enum class CommunicationCodes : uint16_t {
   ORC_Shutdown_Tof_Daq = construct_code(0x10, COM_SUBSYSTEM_ORC_MSK),
   ORC_Boot_Tpc_Daq = construct_code(0x11, COM_SUBSYSTEM_ORC_MSK),
   ORC_Shutdown_Tpc_Daq = construct_code(0x12, COM_SUBSYSTEM_ORC_MSK),
+  ORC_Start_PPS = construct_code(0x13, COM_SUBSYSTEM_ORC_MSK), 
+  ORC_Send_Pulse_Train = construct_code(0x13, COM_SUBSYSTEM_ORC_MSK), 
+  ORC_Stop_PPS = construct_code(0x13, COM_SUBSYSTEM_ORC_MSK), 
 
   //TPC Readout
   TPC_Configure = construct_code(0x0, COM_SUBSYSTEM_TPC_MSK),
@@ -110,6 +113,9 @@ enum class CommunicationCodes : uint16_t {
 
   TOF_Run_Convert_Stg1_To_Stg2 = construct_code(0x300, COM_SUBSYSTEM_TOF_MSK),
   TOF_Run_Process_TOF_Coin_Evt_QA = construct_code(0x301, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Run_Process_TOF_QA_Iridium = construct_code(0x302, COM_SUBSYSTEM_TOF_MSK),
+
+  TOF_Monitor_Data_Stream = construct_code(0x400, COM_SUBSYSTEM_TOF_MSK),
 
   TOF_ACK = construct_code(0xFFF, COM_SUBSYSTEM_TOF_MSK),
   TOF_Callback = construct_code(0xFFE, COM_SUBSYSTEM_TOF_MSK),
