@@ -76,6 +76,8 @@ enum class CommunicationCodes : uint16_t {
   ORC_Stop_PPS = construct_code(0x15, COM_SUBSYSTEM_ORC_MSK), 
   ORC_Restart_Orchestrator = construct_code(0x16, COM_SUBSYSTEM_ORC_MSK),
   ORC_Clear_Errors = construct_code(0x17, COM_SUBSYSTEM_ORC_MSK),
+  ORC_Set_Data_SSD0 = construct_code(0x18, COM_SUBSYSTEM_ORC_MSK),
+  ORC_Set_Data_SSD1 = construct_code(0x19, COM_SUBSYSTEM_ORC_MSK),
 
   //TPC Readout
   TPC_Configure = construct_code(0x0, COM_SUBSYSTEM_TPC_MSK),
