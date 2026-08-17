@@ -105,46 +105,58 @@ enum class CommunicationCodes : uint16_t {
   TPCMonitor_Query_Event_Data = construct_code(0x8, COM_SUBSYSTEM_TPCMonitor_MSK),
 
   // TOF
-  TOF_Start_DAQ = construct_code(0x0, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Stop_DAQ = construct_code(0x1, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Reset_DAQ = construct_code(0x2, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Reconnect_Network = construct_code(0x3, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Start_DAQ                        = construct_code(0x0,   COM_SUBSYSTEM_TOF_MSK),
+  TOF_Stop_DAQ                         = construct_code(0x1,   COM_SUBSYSTEM_TOF_MSK),
+  TOF_Reset_DAQ                        = construct_code(0x2,   COM_SUBSYSTEM_TOF_MSK),
+  TOF_Reconnect_Network                = construct_code(0x3,   COM_SUBSYSTEM_TOF_MSK),
 
-  TOF_Init_System = construct_code(0x100, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Make_Bias_Calib_Table = construct_code(0x101, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Make_Simple_Bias_Set_Table = construct_code(0x102, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Make_Simple_Channel_Map = construct_code(0x103, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Make_Simple_Disc_Set_Table = construct_code(0x104, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Read_Temperature_Sensors = construct_code(0x105, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Acquire_Threshold_Calibration = construct_code(0x106, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Acquire_TDC_Calibration = construct_code(0x107, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Acquire_QDC_Calibration = construct_code(0x108, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Acquire_SiPM_Data = construct_code(0x109, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Init_System                      = construct_code(0x100, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Make_Bias_Calib_Table            = construct_code(0x101, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Make_Simple_Bias_Set_Table       = construct_code(0x102, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Make_Simple_Channel_Map          = construct_code(0x103, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Make_Simple_Disc_Set_Table       = construct_code(0x104, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Read_Temperature_Sensors         = construct_code(0x105, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Acquire_Threshold_Calibration    = construct_code(0x106, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Acquire_TDC_Calibration          = construct_code(0x107, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Acquire_QDC_Calibration          = construct_code(0x108, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Acquire_SiPM_Data                = construct_code(0x109, COM_SUBSYSTEM_TOF_MSK),
   TOF_Acquire_Threshold_Calibration_BN = construct_code(0x10A, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Acquire_Threshold_Calibration_D = construct_code(0x10B, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Set_FEM_Power_Off = construct_code(0x10C, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Set_FEM_Power_On = construct_code(0x10D, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Acquire_Threshold_Calibration_D  = construct_code(0x10B, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Set_FEM_Power_Off                = construct_code(0x10C, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Set_FEM_Power_On                 = construct_code(0x10D, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Start_Asic_Temp_Record           = construct_code(0x10E, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Stop_Asic_Temp_Record            = construct_code(0x10F, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Read_Temperature_Sensors_Single  = construct_code(0x110, COM_SUBSYSTEM_TOF_MSK),
 
-  TOF_Process_Threshold_Calibration = construct_code(0x200, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Process_TDC_Calibration = construct_code(0x201, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Process_QDC_Calibration = construct_code(0x202, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Convert_Raw_To_Raw = construct_code(0x203, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Convert_Raw_To_Singles = construct_code(0x204, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Process_Threshold_Calibration    = construct_code(0x200, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Process_TDC_Calibration          = construct_code(0x201, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Process_QDC_Calibration          = construct_code(0x202, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Convert_Raw_To_Raw               = construct_code(0x203, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Convert_Raw_To_Singles           = construct_code(0x204, COM_SUBSYSTEM_TOF_MSK),
 
-  TOF_Convert_Stg1_To_Stg2 = construct_code(0x300, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Process_QA_Coin = construct_code(0x301, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Process_QA_Iridium = construct_code(0x302, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Convert_Stg1_To_Stg2             = construct_code(0x300, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Process_QA_Coin                  = construct_code(0x301, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Process_QA_Iridium               = construct_code(0x302, COM_SUBSYSTEM_TOF_MSK),
 
-  TOF_Macro_Thermal_Calib = construct_code(0x500, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Macro_Auto_Run_Sequence = construct_code(0x501, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Macro_Pre_Bias_Prep = construct_code(0x502, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Macro_Post_Bias_Prep = construct_code(0x503, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Macro_Cyclic_Run_Loop = construct_code(0x504, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Macro_Thermal_Calib              = construct_code(0x500, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Macro_Auto_Run_Sequence          = construct_code(0x501, COM_SUBSYSTEM_TOF_MSK),
 
-  TOF_ACK = construct_code(0xFFF, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Callback = construct_code(0xFFE, COM_SUBSYSTEM_TOF_MSK),
-  TOF_Status = construct_code(0xFFD, COM_SUBSYSTEM_TOF_MSK),
-  TOF_DummyTest = construct_code(0xFFC, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Macro_Stage0_Prebreakdown_BN     = construct_code(0x600, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Macro_Stage1_Unbiased_TDC        = construct_code(0x601, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Macro_Stage2_Prebreakdown_QDC    = construct_code(0x602, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Macro_Stage3_Operational_D       = construct_code(0x603, COM_SUBSYSTEM_TOF_MSK),
+
+  TOF_Macro_Auto_Run_Cycle             = construct_code(0x700, COM_SUBSYSTEM_TOF_MSK),
+
+  TOF_ACK                              = construct_code(0xFFF, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Callback                         = construct_code(0xFFE, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Status                           = construct_code(0xFFD, COM_SUBSYSTEM_TOF_MSK),
+  TOF_DummyTest                        = construct_code(0xFFC, COM_SUBSYSTEM_TOF_MSK),
+
+  // TOF Bias
+  TOF_Bias_ON = construct_code(0x0, COM_SUBSYSTEM_TOF_BIAS_MSK),
+  TOF_Bias_OFF = construct_code(0x1, COM_SUBSYSTEM_TOF_BIAS_MSK),
+  TOF_Bias_Set_Voltage = construct_code(0x2, COM_SUBSYSTEM_TOF_BIAS_MSK),
 
   CMN_Command_Error = construct_code(0x0, COM_SUBSYSTEM_CMN_MSK),
 
@@ -171,11 +183,13 @@ inline bool is_pdu_enable_commands(uint16_t code) {
   return false;
 }
 
+
 enum class TelemetryCodes : uint16_t {
   HUB_Telemetry_Normal = construct_code(0x0, COM_SUBSYSTEM_HUB_MSK),
   ORC_Hardware_Status = construct_code(0x20, COM_SUBSYSTEM_ORC_MSK),
   TPC_Hardware_Status = construct_code(0x20, COM_SUBSYSTEM_TPC_MSK),
-  TPC_Query_Hardware_Status = construct_code(0x22, COM_SUBSYSTEM_TPC_MSK)
+  TPC_Query_Hardware_Status = construct_code(0x22, COM_SUBSYSTEM_TPC_MSK),
+  TOF_Monitor_Data_Stream = construct_code(0x400, COM_SUBSYSTEM_TOF_MSK)
 };
 constexpr uint16_t to_telem_u16(TelemetryCodes code) noexcept {
   return static_cast<uint16_t>(code);
