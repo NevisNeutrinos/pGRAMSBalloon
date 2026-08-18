@@ -153,10 +153,6 @@ enum class CommunicationCodes : uint16_t {
   TOF_Status                           = construct_code(0xFFD, COM_SUBSYSTEM_TOF_MSK),
   TOF_DummyTest                        = construct_code(0xFFC, COM_SUBSYSTEM_TOF_MSK),
 
-  // TOF Bias
-  TOF_Bias_ON = construct_code(0x0, COM_SUBSYSTEM_TOF_BIAS_MSK),
-  TOF_Bias_OFF = construct_code(0x1, COM_SUBSYSTEM_TOF_BIAS_MSK),
-  TOF_Bias_Set_Voltage = construct_code(0x2, COM_SUBSYSTEM_TOF_BIAS_MSK),
 
   CMN_Command_Error = construct_code(0x0, COM_SUBSYSTEM_CMN_MSK),
 
