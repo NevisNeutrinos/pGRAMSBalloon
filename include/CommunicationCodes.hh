@@ -190,7 +190,8 @@ enum class TelemetryCodes : uint16_t {
   ORC_Hardware_Status = construct_code(0x20, COM_SUBSYSTEM_ORC_MSK),
   TPC_Hardware_Status = construct_code(0x20, COM_SUBSYSTEM_TPC_MSK),
   TPC_Query_Hardware_Status = construct_code(0x22, COM_SUBSYSTEM_TPC_MSK),
-  TOF_Monitor_Data_Stream = construct_code(0x400, COM_SUBSYSTEM_TOF_MSK)
+  TOF_Monitor_Data_Stream = construct_code(0x400, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Logger_Data_Stream = construct_code(0x401, COM_SUBSYSTEM_TOF_MSK)
 };
 constexpr uint16_t to_telem_u16(TelemetryCodes code) noexcept {
   return static_cast<uint16_t>(code);
