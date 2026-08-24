@@ -106,12 +106,15 @@ enum class CommunicationCodes : uint16_t {
   // TPC Monitor
   TPCMonitor_Query_LB_Data = construct_code(0x7, COM_SUBSYSTEM_TPCMonitor_MSK),
   TPCMonitor_Query_Event_Data = construct_code(0x8, COM_SUBSYSTEM_TPCMonitor_MSK),
+  TPCMonitor_Start_Continuous_LBW = construct_code(0x9, COM_SUBSYSTEM_TPCMonitor_MSK),
+  TPCMonitor_Stop_Continuous_LBW = construct_code(0xA, COM_SUBSYSTEM_TPCMonitor_MSK),
+  TPCMonitor_Send_Full_Event_Data = construct_code(0xB, COM_SUBSYSTEM_TPCMonitor_MSK),
 
   // TOF
-  TOF_Start_DAQ                        = construct_code(0x0,   COM_SUBSYSTEM_TOF_MSK),
-  TOF_Stop_DAQ                         = construct_code(0x1,   COM_SUBSYSTEM_TOF_MSK),
-  TOF_Reset_DAQ                        = construct_code(0x2,   COM_SUBSYSTEM_TOF_MSK),
-  TOF_Reconnect_Network                = construct_code(0x3,   COM_SUBSYSTEM_TOF_MSK),
+  TOF_Start_DAQ                        = construct_code(0x0, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Stop_DAQ                         = construct_code(0x1, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Reset_DAQ                        = construct_code(0x2, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Reconnect_Network                = construct_code(0x3, COM_SUBSYSTEM_TOF_MSK),
 
   TOF_Init_System                      = construct_code(0x100, COM_SUBSYSTEM_TOF_MSK),
   TOF_Make_Bias_Calib_Table            = construct_code(0x101, COM_SUBSYSTEM_TOF_MSK),
@@ -141,6 +144,9 @@ enum class CommunicationCodes : uint16_t {
   TOF_Process_QA_Coin                  = construct_code(0x301, COM_SUBSYSTEM_TOF_MSK),
   TOF_Process_QA_Iridium               = construct_code(0x302, COM_SUBSYSTEM_TOF_MSK),
 
+  TOF_Monitor_Data_Stream              = construct_code(0x400, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Logger_Data_Stream               = construct_code(0x401, COM_SUBSYSTEM_TOF_MSK),
+
   TOF_Macro_Thermal_Calib              = construct_code(0x500, COM_SUBSYSTEM_TOF_MSK),
   TOF_Macro_Auto_Run_Sequence          = construct_code(0x501, COM_SUBSYSTEM_TOF_MSK),
 
@@ -155,7 +161,6 @@ enum class CommunicationCodes : uint16_t {
   TOF_Callback                         = construct_code(0xFFE, COM_SUBSYSTEM_TOF_MSK),
   TOF_Status                           = construct_code(0xFFD, COM_SUBSYSTEM_TOF_MSK),
   TOF_DummyTest                        = construct_code(0xFFC, COM_SUBSYSTEM_TOF_MSK),
-
 
   CMN_Command_Error = construct_code(0x0, COM_SUBSYSTEM_CMN_MSK),
 
@@ -190,7 +195,8 @@ enum class TelemetryCodes : uint16_t {
   ORC_Hardware_Status = construct_code(0x20, COM_SUBSYSTEM_ORC_MSK),
   TPC_Hardware_Status = construct_code(0x20, COM_SUBSYSTEM_TPC_MSK),
   TPC_Query_Hardware_Status = construct_code(0x22, COM_SUBSYSTEM_TPC_MSK),
-  TOF_Monitor_Data_Stream = construct_code(0x400, COM_SUBSYSTEM_TOF_MSK)
+  TOF_Monitor_Data_Stream = construct_code(0x400, COM_SUBSYSTEM_TOF_MSK),
+  TOF_Callback = static_cast<uint16_t>(CommunicationCodes::TOF_Callback)
 };
 constexpr uint16_t to_telem_u16(TelemetryCodes code) noexcept {
   return static_cast<uint16_t>(code);
